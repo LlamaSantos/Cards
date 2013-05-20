@@ -1,0 +1,18 @@
+{
+    "name": "Cards",
+    "version" : "0.0.1",
+    "engine" : {
+        "node" : "0.10.*"
+    },
+    "dependencies" : {
+        "nodeject" : "*",
+        "async" : "*",
+        "underscore" : "*",
+        "eventemitter2" : "*",
+        "hogan.js" : "*"
+    },
+    "devDependencies" : {
+        "grunt-browserify" : "*",
+        "grunt-contrib-hogan" : "*"
+    }
+}
