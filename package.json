@@ -9,9 +9,13 @@
         "async" : "*",
         "underscore" : "*",
         "eventemitter2" : "*",
-        "hogan.js" : "*"
+        "hogan.js" : "*",
+        "express" : "*",
+        "hogan-express" : "*",
+        "grunt" : "*"
     },
     "devDependencies" : {
+        "grunt" : "*",
         "grunt-browserify" : "*",
         "grunt-contrib-hogan" : "*"
     }
