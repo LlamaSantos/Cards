@@ -11,8 +11,7 @@
         "eventemitter2" : "*",
         "hogan.js" : "*",
         "express" : "*",
-        "hogan-express" : "*",
-        "grunt" : "*"
+        "hogan-express" : "*"
     },
     "devDependencies" : {
         "grunt" : "*",
