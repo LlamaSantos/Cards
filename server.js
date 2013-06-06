@@ -5,8 +5,9 @@ app.use(express.static(__dirname + "/public"));
 app.use("html", require("hogan-express"));
 app.enable("view cache");
 
-if (true)
-	console.log ("hogan");
+if (true){
+	console.log ("taco amigo");
+}
 else
 	console.log("something screwed up.");
 
