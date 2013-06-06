@@ -25,6 +25,6 @@ module.exports = function (grunt){
     grunt.loadNpmTasks("grunt-browserify");
     grunt.loadNpmTasks("grunt-contrib-hogan");
 
-    grunt.registerTask("default", ["hogan", "browserify"]);
+    g1runt.registerTask("default", ["hogan", "browserify"]);
     grunt.registerTask("test", ["hogan", "browserify"]);
 };
