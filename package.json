@@ -16,6 +16,11 @@
     "devDependencies" : {
         "grunt" : "*",
         "grunt-browserify" : "*",
-        "grunt-contrib-hogan" : "*"
+        "grunt-contrib-htmlmin" : "*",
+        "grunt-contrib-hogan" : "*",
+        "grunt-contrib-concat" : "*",
+        "grunt-contrib-less" : "*",
+        "grunt-contrib-uglify" : "*",
+        "grunt-cafe-mocha" : "*"
     }
 }

@@ -2,19 +2,18 @@ var express = require("express")
     , app = express();
 
 app.use(express.static(__dirname + "/public"));
-app.use("html", require("hogan-express"));
+app.engine("html", function (path, options, cb){
+        cb(null, "hello world");
+    });
+app.set("view engine", "html");
+app.set("views");
 app.enable("view cache");
 
-if (true){
-	console.log ("taco amigo");
-}
-else
-	console.log("something screwed up.");
+// -- Features
+require("./features/home/routes.js").init(app);
 
-app.get("/", function (req, res){
-    res.render("index", {partials : {}}); // nothing defined atm
-});
 
-app.listen(8080, function (err){
-    console.info("Started up on http://localhost:8080/");
+// -- Start this beotch
+app.listen(process.env.PORT, function (data){
+    console.info(data);
 });
