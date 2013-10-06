@@ -9,15 +9,8 @@ app.set("view engine", "html");
 app.set("views");
 app.enable("view cache");
 
-<<<<<<< HEAD
-if (true)
-	console.log ("taco amigo");
-
-=======
 // -- Features
 require("./features/home/routes.js").init(app);
->>>>>>> 317c82024ae48555966eb94e8adeb2527adb8116
-
 
 // -- Start this beotch
 app.listen(process.env.PORT, function (data){
