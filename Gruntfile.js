@@ -1,4 +1,8 @@
 module.exports = function (grunt){
+
+    var _ = require("underscore");
+    var fs = require("fs");
+
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
         browserify: {
@@ -6,6 +10,40 @@ module.exports = function (grunt){
                 "/features/app.startup.js"
             ]
         },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: (function () {
+                    var walk = function (path) {
+                        var result = [];
+
+                        var stats = fs.statSync(path);
+                        if (stats.isFile()) {
+                            var match = (path.match(/(\.min)|(\.html)$/gi) || []);
+                            if (match.length === 1) {
+                                result.push(path);
+                            }
+                        } else if (stats.isDirectory()) {
+                            var list = fs.readdirSync(path);
+                            list.forEach(function (dir) {
+                                result = _.union(result, walk(path + '/' + dir));
+                            });
+                        }
+
+                        return result;
+                    };
+
+                    return _.reduce(walk('./features'), function (memo, file) {
+                        memo[file.replace('.html', '.min.html')] = file;
+                        return memo;
+                    }, {});
+                })()
+            }
+        },
+
         hogan: {
             publish: {
                 options: {
@@ -42,5 +80,5 @@ module.exports = function (grunt){
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-cafe-mocha');
 
-    grunt.registerTask('default', ['hogan', 'concat', 'browserify']);
+    grunt.registerTask('default', ['htmlmin', 'hogan', 'concat', 'browserify']);
 };
